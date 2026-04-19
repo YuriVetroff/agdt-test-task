@@ -2,9 +2,10 @@ services:
 
   sqlserver:
     image: mcr.microsoft.com/mssql/server:2022-latest
-    container_name: myapp-sql
+    container_name: agdt-sql
     environment:
       ACCEPT_EULA: "Y"
+      SA_USER: ${DB_USER}
       SA_PASSWORD: ${DB_PASSWORD}
     ports:
       - "1433:1433"
@@ -14,7 +15,7 @@ services:
       test:
         [
           "CMD-SHELL",
-          "/opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P \"$$SA_PASSWORD\" -C -Q \"SELECT 1\" || exit 1"
+          "/opt/mssql-tools18/bin/sqlcmd -S localhost -U \"$$SA_USER\" -P \"$$SA_PASSWORD\" -C -Q \"SELECT 1\" || exit 1"
         ]
       interval: 10s
       timeout: 5s
