@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "AgdtTestTask.Medical.DataAccess.Migrations": {
+      "commandName": "Project"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker"
+    }
+  }
+}

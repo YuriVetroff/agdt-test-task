@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <ProjectReference Include="..\AgdtTestTask.Core.MediatR\AgdtTestTask.Core.MediatR.csproj" />
+    <ProjectReference Include="..\AgdtTestTask.Medical.BusinessLogic.Abstracts\AgdtTestTask.Medical.BusinessLogic.Abstracts.csproj" />
+  </ItemGroup>
+
+</Project>

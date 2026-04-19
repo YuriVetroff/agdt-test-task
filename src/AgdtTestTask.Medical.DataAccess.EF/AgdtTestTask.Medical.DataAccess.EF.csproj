@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AgdtTestTask.Core.DataAccess.EF\AgdtTestTask.Core.DataAccess.EF.csproj" />
+    <ProjectReference Include="..\AgdtTestTask.Medical.Entities\AgdtTestTask.Medical.Entities.csproj" />
+  </ItemGroup>
+
+</Project>
