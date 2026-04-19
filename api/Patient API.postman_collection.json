@@ -1,0 +1,180 @@
+{
+  "info": {
+    "_postman_id": "afb43262-f079-40e2-9be2-cd1593eea7c3",
+    "name": "Patient API",
+    "description": "Patient API (FHIR-style birthdate search)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "3216972"
+  },
+  "item": [
+    {
+      "name": "Get Patient by GUID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/Patient/by-guid?guid=3fa85f64-5717-4562-b3fc-2c963f66afa6",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "Patient",
+            "by-guid"
+          ],
+          "query": [
+            {
+              "key": "guid",
+              "value": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Patients by Birthdate",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/Patient/by-birthdate?birthdateParams=ge1980-01-01&birthdateParams=lt1990-01-01",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "Patient",
+            "by-birthdate"
+          ],
+          "query": [
+            {
+              "key": "birthdateParams",
+              "value": "ge1980-01-01"
+            },
+            {
+              "key": "birthdateParams",
+              "value": "lt1990-01-01"
+            }
+          ]
+        },
+        "description": "FHIR prefixes: eq, ne, gt, lt, ge, le, sa, eb, ap"
+      },
+      "response": []
+    },
+    {
+      "name": "Create Patient",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"gender\": 0,\n  \"active\": true,\n  \"name\": {\n    \"id\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\n    \"use\": 0,\n    \"given\": [\n      \"John\"\n    ],\n    \"family\": \"Doe\"\n  },\n  \"birthdate\": \"1985-06-15T00:00:00Z\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/Patient",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "Patient"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update Patient",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"gender\": 1,\n  \"active\": false,\n  \"name\": {\n    \"id\": \"c4186a9b-4b56-41a1-82f4-8e0aa41a39a4\",\n    \"use\": 0,\n    \"given\": [\n      \"Jane\"\n    ],\n    \"family\": \"Doe\"\n  },\n  \"birthdate\": \"1986-07-20T00:00:00Z\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/Patient?patientId=1",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "Patient"
+          ],
+          "query": [
+            {
+              "key": "patientId",
+              "value": "1"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Patient",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/Patient?id=1",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "Patient"
+          ],
+          "query": [
+            {
+              "key": "id",
+              "value": "1"
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://localhost:5001"
+    }
+  ]
+}
